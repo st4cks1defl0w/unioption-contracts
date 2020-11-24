@@ -38,8 +38,7 @@ contract OptionChef is Ownable {
         hegicOption = _hegicOption ;
     }
 
-    constructor(IUniOption _uniOption, IHegicOptions _hegicOption) public {
-        uniOption = _uniOption;
+    constructor(IHegicOptions _hegicOption) public {
         hegicOption = _hegicOption ;
     }
 
