@@ -8,9 +8,15 @@
 
 `npm i && truffle compile`
 
-### localchain 
+### spin up localchain 
 
 `truffle develop`
+
+### deploy contracts
+ after installing deps, compiling and launching localchain (as a parallel process):
+ 
+ `truffle migrate --reset`
+ 
 
 ## proposed migratable chain of trust:
 ### deployer (multisig/dao/trusted address) -> Chef -> NFT
