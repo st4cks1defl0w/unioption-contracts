@@ -2,7 +2,7 @@
 
 pragma solidity 0.6.12;
 
-interface UniOption {
+interface IUniOption {
     //custom functions in use
     function burnUniOption(uint _id) external;
     function mintUniOption(address _to) external returns (uint256);

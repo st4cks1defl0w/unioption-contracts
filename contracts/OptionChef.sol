@@ -5,7 +5,7 @@ pragma solidity 0.6.12;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interfaces/IOptions.sol";
-import "./interfaces/INFT.sol";
+import "./interfaces/IUniOption.sol";
 
 /**
  * @author ivan@district0x
@@ -17,7 +17,7 @@ contract OptionChef is Ownable {
     //storage
 
     IHegicOptions public hegicOption;
-    UniOption public uniOption;
+    IUniOption public uniOption;
 
     //ideally this should've been a mapping/arr of id->Struct {owner, id}
     //there are a few EVM gotchas for this (afaik one can't peek into
@@ -38,7 +38,7 @@ contract OptionChef is Ownable {
         hegicOption = _hegicOption ;
     }
 
-    constructor(UniOption _uniOption, IHegicOptions _hegicOption) public {
+    constructor(IUniOption _uniOption, IHegicOptions _hegicOption) public {
         uniOption = _uniOption;
         hegicOption = _hegicOption ;
     }

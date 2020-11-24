@@ -2,6 +2,6 @@
 
 pragma solidity 0.6.12;
 
-interface OptionChef {
+interface IOptionChef {
     function isDelegated(uint _tokenId) external returns (bool);
 }

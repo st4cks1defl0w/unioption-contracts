@@ -7,7 +7,7 @@ pragma solidity ^0.6.12;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./interfaces/IChef.sol";
+import "./interfaces/IOptionChef.sol";
 
 contract UniOption is ERC721, Ownable  {
     using Counters for Counters.Counter;
@@ -16,10 +16,10 @@ contract UniOption is ERC721, Ownable  {
 
     //storage
     //chef aka owner, we wouldn't want check NFT ownership against owner though
-    OptionChef public optionChef;
+    IOptionChef public optionChef;
     string public METADATA_BASE = "https://options.district0x.io/meta/";
 
-    constructor(OptionChef _optionChef) ERC721("UniOption", "UOPT") public {
+    constructor(IOptionChef _optionChef) ERC721("UniOption", "UOPT") public {
         optionChef = _optionChef;
         transferOwnership(address(_optionChef));
         _setBaseURI(METADATA_BASE);
