@@ -109,6 +109,11 @@ contract OptionChef is Ownable {
         return holder == address(this);
     }
 
+
+    function exerciseHegic(uint _tokenId) external onlyTokenOwner(_tokenId) {
+         hegicOption.exercise(uIds[_tokenId]);
+    }
+
     // TODO - essential sanity check for unwrapping
 
     modifier onlyTokenOwner(uint _itemId) {

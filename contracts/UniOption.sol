@@ -53,11 +53,11 @@ contract UniOption is ERC721, Ownable  {
     /**
      * @notice Overcoming Hegic absence of approval mechanism to mint in one tx
      */
-    // function _isApprovedOrOwner(address spender, uint256 tokenId)
-    //     public
-    //     override
-    //     returns (bool) {
-    //     return (_isApprovedOrOwner(spender, tokenId) && optionChef.isDelegated(tokenId));
-    // }
+    function _isApprovedOrOwner(address spender, uint256 tokenId)
+        public
+        override
+        returns (bool) {
+        return (_isApprovedOrOwner(spender, tokenId) && optionChef.isDelegated(tokenId));
+    }
 
 }
