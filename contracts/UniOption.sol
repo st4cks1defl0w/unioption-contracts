@@ -17,12 +17,11 @@ contract UniOption is ERC721, Ownable  {
     //storage
     //chef aka owner, we wouldn't want check NFT ownership against owner though
     IOptionChef public optionChef;
-    string public METADATA_BASE = "https://options.district0x.io/meta/";
 
-    constructor(IOptionChef _optionChef) ERC721("UniOption", "UOPT") public {
+    constructor(IOptionChef _optionChef, string memory _base) ERC721("UniOption", "UOPT") public {
         optionChef = _optionChef;
         transferOwnership(address(_optionChef));
-        _setBaseURI(METADATA_BASE);
+        _setBaseURI(_base);
     }
 
     /**
