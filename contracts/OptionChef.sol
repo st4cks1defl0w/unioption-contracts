@@ -110,9 +110,9 @@ contract OptionChef is Ownable {
     }
 
 
-    function exerciseHegic(uint _tokenId) external onlyTokenOwner(_tokenId) {
-         hegicOption.exercise(uIds[_tokenId]);
-    }
+    // function exerciseHegic(uint _tokenId) external onlyTokenOwner(_tokenId) {
+    //      hegicOption.exercise(uIds[_tokenId]);
+    // }
 
     // TODO - essential sanity check for unwrapping
 

@@ -49,15 +49,12 @@ contract UniOption is ERC721, Ownable  {
         _burn(_id);
     }
 
-    // TODO pick a more convenient function to override transfer
     /**
      * @notice Overcoming Hegic absence of approval mechanism to mint in one tx
+     * @notice Lock token transfers unless (un)wrapping
      */
-    function _isApprovedOrOwner(address spender, uint256 tokenId)
-        public
-        override
-        returns (bool) {
-        return (_isApprovedOrOwner(spender, tokenId) && optionChef.isDelegated(tokenId));
+    function _beforeTokenTransfer(address _from, address _to, uint256 _tokenId) internal override {
+        require(optionChef.isDelegated(tokenId) || _from == address(0) || _to == address(0), "UOPT:ownership/deleg");
     }
 
 }
