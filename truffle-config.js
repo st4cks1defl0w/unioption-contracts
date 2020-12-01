@@ -1,3 +1,6 @@
+require('dotenv').config();
+WalletProvider = require("truffle-hdwallet-provider");
+
 module.exports = {
     // testing on `truffle develop` for quick iteration
     networks: {
