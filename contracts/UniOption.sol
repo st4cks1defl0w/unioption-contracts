@@ -54,7 +54,7 @@ contract UniOption is ERC721, Ownable  {
      * @notice Lock token transfers unless (un)wrapping
      */
     function _beforeTokenTransfer(address _from, address _to, uint256 _tokenId) internal override {
-        require(optionChef.isDelegated(tokenId) || _from == address(0) || _to == address(0), "UOPT:ownership/deleg");
+        require(optionChef.isDelegated(_tokenId) || _from == address(0) || _to == address(0), "UOPT:ownership/deleg");
     }
 
 }

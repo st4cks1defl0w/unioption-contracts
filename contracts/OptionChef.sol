@@ -114,12 +114,21 @@ contract OptionChef is Ownable {
         return holder == address(this);
     }
 
-
-    // function exerciseHegic(uint _tokenId) external onlyTokenOwner(_tokenId) {
-    //      hegicOption.exercise(uIds[_tokenId]);
-    // }
-
-    // TODO - essential sanity check for unwrapping
+    function createHegic(
+        uint _period,
+        uint _amount,
+        uint _strike,
+        IHegicOptions.OptionType _optionType
+    )
+        payable
+        external
+        returns (uint)
+    {
+        uint optionId = hegicOption.create{value: msg.value}(_period, _amount, _strike, _optionType);
+        // return eth excess
+        payable(msg.sender).transfer(address(this).balance);
+        return wrapHegic(optionId);
+    }
 
     modifier onlyTokenOwner(uint _itemId) {
         require(msg.sender == uniOption.ownerOf(_itemId), "UOPT:ownership/exchange");
