@@ -27,3 +27,7 @@
 - add an ability to mint/exercise underlying option
 - split Chef into adapters
 - ...
+
+### NB - security guarantees
+- no double-minting
+- beforeTokenTransfer hook locks NFT unless it's owned by Chef

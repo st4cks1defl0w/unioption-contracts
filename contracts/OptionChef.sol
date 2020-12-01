@@ -23,6 +23,7 @@ contract OptionChef is Ownable {
     //there are a few EVM gotchas for this (afaik one can't peek into
     //mapped structs from another contracts, happy to restructure if I'm wrong though)
     uint256[] uIds;
+    uint256[] ids;
 
     //events
 
@@ -50,11 +51,13 @@ contract OptionChef is Ownable {
      * @notice UniOption wrapper adapter for Hegic
      */
     function wrapHegic(uint _uId) public returns (uint newTokenId) {
+        require(ids[_uId] == 0 , "UOPT:exists");
         (, address holder, , , , , , ) = hegicOption.options(_uId);
         //auth is a bit unintuitive for wrapping, see NFT.sol:isApprovedOrOwner()
         require(holder == msg.sender, "UOPT:ownership");
         newTokenId = uniOption.mintUniOption(msg.sender);
         uIds[newTokenId] = _uId;
+        ids[_uId] = newTokenId;
         emit Wrapped(msg.sender, _uId);
     }
 
@@ -71,6 +74,8 @@ contract OptionChef is Ownable {
         }
         //burns anyway if token is expired
         uniOption.burnUniOption(_tokenId);
+        ids[uIds[_tokenId]] = 0;
+        uIds[_tokenId] = 0;
         emit Unwrapped(msg.sender, _tokenId);
     }
 
