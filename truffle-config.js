@@ -1,5 +1,5 @@
 require('dotenv').config();
-WalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
     // testing on `truffle develop` for quick iteration
@@ -31,9 +31,6 @@ module.exports = {
     plugins: [
         'truffle-plugin-verify'
     ],
-    verify: {
-        preamble: 'Testnet contracts preamble'
-    },
     api_keys: {
         etherscan: process.env.ETHERSCAN_API_KEY
     },
