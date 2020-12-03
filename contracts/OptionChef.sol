@@ -39,6 +39,12 @@ contract OptionChef is Ownable {
         hegicOption = _hegicOption ;
     }
 
+    function updateUniOption(IUniOption _uniOption)
+        external
+        onlyOwner {
+        uniOption = _uniOption;
+    }
+
     constructor(IHegicOptions _hegicOption) public {
         hegicOption = _hegicOption ;
     }
