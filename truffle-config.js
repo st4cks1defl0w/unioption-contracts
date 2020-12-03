@@ -12,6 +12,13 @@ module.exports = {
             network_id: 3,
             skipDryRun: true
         },
+        main: {
+            provider: function() {
+                return new HDWalletProvider(`${process.env.MNEMONIC}`, `https://mainnet.infura.io/v3/${process.env.INFURA_ID}`)
+            },
+            // confirmations: 2,
+            network_id: 1
+        },
         development: {
             host: "127.0.0.1",
             port: 9545,
