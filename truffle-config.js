@@ -16,6 +16,7 @@ module.exports = {
             provider: function() {
                 return new HDWalletProvider(`${process.env.MNEMONIC}`, `https://mainnet.infura.io/v3/${process.env.INFURA_ID}`)
             },
+            gasPrice: 42000000000,
             // confirmations: 2,
             network_id: 1
         },

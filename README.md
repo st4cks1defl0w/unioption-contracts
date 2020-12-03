@@ -35,3 +35,8 @@
 -  https://ropsten.etherscan.io/address/0xaAD7C0dede1e48F22941234c48b31E09E79A8D34#contracts 
 
 -  https://ropsten.etherscan.io/address/0xe0A17145562066AB91B57F2623f4ce991aBaD4C0#contracts
+
+### NB - current mainnet deployments
+- https://etherscan.io/address/0xe0A17145562066AB91B57F2623f4ce991aBaD4C0#contracts
+
+- https://etherscan.io/address/0xaAD7C0dede1e48F22941234c48b31E09E79A8D34#contracts
