@@ -22,8 +22,8 @@ contract OptionChef is Ownable {
     //ideally this should've been a mapping/arr of id->Struct {owner, id}
     //there are a few EVM gotchas for this (afaik one can't peek into
     //mapped structs from another contracts, happy to restructure if I'm wrong though)
-    uint256[] uIds;
-    uint256[] ids;
+    mapping (uint => uint) uIds;
+    mapping (uint => uint) ids;
 
     //events
 
