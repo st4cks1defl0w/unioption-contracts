@@ -22,9 +22,8 @@
 ### deployer (multisig/dao/trusted address) -> Chef -> NFT
 
 ## TODO
-- verify transferOwnership
-- (!) look into 0x relayer locking mechanism, lock unwrapping when NFT is on sale
-- add an ability to mint/exercise underlying option
+- verify transferOwnership chain
+- decouple chef and owner, add ability to migrate metadata _baseUrl_
 - split Chef into adapters
 - ...
 
